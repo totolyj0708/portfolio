@@ -38,6 +38,65 @@
     a{color:inherit; text-decoration:none}
     img{max-width:100%; display:block}
     .container{max-width:var(--maxw); margin:0 auto; padding:0 20px}
+    
+    .top-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  background: var(--point);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+  transition: background 0.3s ease, transform 0.2s ease;
+  z-index: 999;
+}
+
+/* 위 화살표 (삼각형) */
+.top-btn::before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 14px solid white; /* 화살표 색 */
+  top: 16px;
+}
+
+/* 화살표 꼬리 (직사각형) */
+.top-btn::after {
+  content: "";
+  position: absolute;
+  width: 9px;
+  height: 12px;
+  background: white;
+  bottom: 14px;
+}
+  
+.top-btn:hover {
+  background: #333;
+  transform: scale(1.1);
+}
+-btn::after::after {
+  content: "";
+  position: absolute;
+  width: 5px;
+  height: 7px;
+  background: var(--point);
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 1px;
+}
+  
+.home-btn:hover {
+  background: #333;
+  transform: scale(1.1);
+}
 
     /* ===== Header / Nav ===== */
     header{
@@ -462,5 +521,8 @@
       }
     });
   </script>
+  <a href="#top" class="top-btn" aria-label="Go to top"></a>
+</body>
+</html>
 </body>
 </html>

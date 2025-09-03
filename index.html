@@ -1,0 +1,466 @@
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>율 포트폴리오 | 새하얀 대지에 물음을 얹는 디자이너</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard-dynamic-subset.css" />
+
+  <style>
+    :root{
+      --black:#111111;
+      --white:#f5f5f6;
+      --muted:#8d8d90;
+      --point:#0a57ff;
+      --sub:#b8d1f8;
+      --maxw:1200px;
+      --radius:16px;
+      --shadow:0 8px 30px rgba(15,15,15,.08);
+      --accent-grad: linear-gradient(120deg, rgba(10,87,255,.14), rgba(184,209,248,.12));
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:Pretendard, system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans KR", "Apple SD Gothic Neo", sans-serif;
+      color:var(--black);
+      background:var(--white);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.6;
+      scroll-behavior:smooth;
+      overscroll-behavior-y: contain;
+    }
+    a{color:inherit; text-decoration:none}
+    img{max-width:100%; display:block}
+    .container{max-width:var(--maxw); margin:0 auto; padding:0 20px}
+
+    /* ===== Header / Nav ===== */
+    header{
+      position:sticky; top:12px; z-index:60;
+      background:linear-gradient(180deg, rgba(245,245,246,.9), rgba(245,245,246,.6));
+      backdrop-filter: blur(6px) saturate(120%);
+      margin:0;
+      border-radius:12px;
+      margin-left:10px; margin-right:10px;
+      box-shadow:0 6px 20px rgba(8,8,8,.04);
+      border:1px solid rgba(0,0,0,.04);
+    }
+    .nav{
+      display:flex; align-items:center; justify-content:space-between; height:64px;
+      gap:12px; padding:0 18px;
+    }
+    .brand{
+      font-weight:700; letter-spacing:.6px; color:var(--black);
+      display:flex; align-items:center; gap:10px;
+      font-size:16px;
+    }
+    .brand .logo-sml{
+      width:36px; height:36px; border-radius:8px; background:var(--point); display:inline-grid; place-items:center;
+      color:#fff; font-weight:700; box-shadow:var(--shadow); font-family: Playfair Display, serif;
+    }
+    nav ul{display:flex; gap:14px; list-style:none; padding:0; margin:0; align-items:center}
+    nav a.btn-nav{
+      padding:8px 12px; border-radius:999px; font-size:14px; color:var(--muted);
+      transition:all .22s; border:1px solid transparent;
+    }
+    nav a.btn-nav:hover{ color:var(--point); transform:translateY(-2px); }
+    nav a.cta-nav{
+      padding:8px 14px; background:var(--point); color:#fff; border-radius:999px; font-weight:600; box-shadow:var(--shadow);
+      border:1px solid rgba(7,46,255,.15);
+    }
+
+    /* Mobile nav toggle */
+    .menu-toggle{display:none; background:none; border:0; font-size:20px; cursor:pointer}
+    @media (max-width:820px){
+      nav ul{display:none}
+      .menu-toggle{display:block}
+    }
+
+    /* ===== Hero ===== */
+    .hero{position:flex; overflow:visible; padding:80px 0 40px}
+    .hero-inner{
+      min-height:78vh;
+      display:grid; grid-template-columns:1fr 520px; gap:40px; align-items:center;
+      align-content:center;
+      position:relative;
+    }
+    /* left flow content */
+    .hero-content{max-width:720px}
+    .eyebrow{font-size:13px; color:var(--muted); letter-spacing:.12em; text-transform:uppercase}
+    .hero-title{
+      margin:18px 0 12px;
+      font-family: "Playfair Display", serif;
+      font-size:clamp(42px, 7.6vw, 120px);
+      line-height:1.2;
+      letter-spacing:0.0em;
+      color:var(--black);
+      display:block;
+      position:relative;
+      word-break:break-word;
+      transform:translateZ(0);
+    }
+    .hero-title .accent{
+      color:var(--point);
+    }
+    .hero-sub{font-size:18px; color:#555; margin-top:6px; max-width:520px}
+    .chips{display:flex; flex-wrap:wrap; gap:10px; margin:18px 0 26px}
+    .chip{padding:8px 12px; border-radius:999px; background:#fff; border:1px solid var(--sub); font-size:13px; color:var(--sub);}
+    .cta{display:flex; gap:10px}
+
+    /* right KV block (image + framed tile like ref) */
+    .kv{
+      position:relative; height:62vh; min-height:320px; display:flex; align-items:center; justify-content:center;
+      border-radius:18px; overflow:visible;
+      background:var(--accent-grad);
+      box-shadow:var(--shadow);
+      border:1px solid rgba(0,0,0,.04);
+      padding:28px;
+    }
+    /* inner tile */
+    .kv .frame{
+      width:68%; aspect-ratio:3/4; background:#fff; border-radius:8px; overflow:hidden; border:1px solid #e7e7ea;
+      display:grid; place-items:center; position:relative;
+    }
+    .kv .frame img{width:110%; height:110%; object-fit:cover; transform:translateY(-6%); mix-blend-mode:normal; filter:contrast(.98) saturate(.92)}
+    .kv .label{position:absolute; bottom:18px; left:22px; font-size:12px; color:#666; letter-spacing:.06em}
+
+    /* subtle background blobs */
+    .blobs{position:absolute; inset:0; pointer-events:none; z-index:-1}
+    
+    .blob{position:absolute; border-radius:50%; filter:blur(36px) saturate(110%); opacity:.22}
+    
+    .blob.b1{width:60vmax; height:70vmax; top:-20%; right:-10%; background:var(--point)}
+    
+    .blob.b2{width:90%; height:38vmax; left:-30%; bottom:-10%; background:var(--sub)}
+    
+    .cta a.chip {
+    background: var(--black);
+    color: var(--sub);
+    border: 1px solid var(--black);
+    transition: all 0.0s;
+    }
+    
+    .cta a.chip:hover {
+    background: var(--point);
+    color: #fff;
+    border: 1px solid var(--point);
+    }
+
+    /* ===== Sections with vertical scroll-snap (flow story) ===== */
+    main{
+      scroll-snap-type: y mandatory;
+      overflow-y: auto;
+    }
+    section{
+      padding:56px 0;
+      scroll-snap-align:start;
+    }
+    .section-title{font-size:20px; font-weight:800; margin:0 0 10px; color: var(--point);}
+    .section-desc{margin-top:-6px; color:#666}
+
+    /* Career styling */
+    .timeline{display:grid; gap:14px}
+    .item{background:#fff; 
+    border:1px solid #eef0f3; 
+    border-radius:12px; 
+    padding:16px; 
+    box-shadow:var(--shadow)}
+    .when{color:var(--muted); font-size:13px; margin-bottom:6px}
+
+    /* Projects */
+    .projects-wrap {
+    display: flex;
+    gap: 20px;
+    padding: 18px 6px;
+    justify-content: space-between;
+    }
+
+    .project-card {
+    width: calc((100% - 40px) / 3)
+    background: #fff;
+    border: 1px solid #ececf0;
+    box-shadow: none;
+    overflow: hidden;
+    flex: column;
+    }
+
+    .project-card .thumb {
+    aspect-ratio: 16/9;
+    width: 100%;
+    background: #e9eefc;
+    overflow: hidden;
+    }
+
+    .project-card .thumb img {
+    width: 100%;
+    background: #e9eefc;
+    overflow: hidden;
+    }
+
+    .project-card .meta {
+    padding: 16px;
+    }
+
+    .project-card h3 {
+    margin: 0 0 8px;
+    font-family: Pretendard, system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans KR", sans-serif;
+    }
+
+    @media (max-width:980px){
+    .hero-inner {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    padding: 36px 0;
+    }
+    .kv {
+    height: 44vh;
+    }
+    .project-card {
+    flex: 0 0 calc(50% - 10px); /* 모바일에서는 2개씩 */
+    min-width: 0;
+    }
+
+    /* Gallery / archive grid (kept but smaller) */
+    .gallery{
+      display:flex;
+      gap:12px;
+      overflow-x:auto;
+      padding-bottom:12px;
+    }
+    .g-item{
+      flex:0 0 auto;
+      width:320px;
+      display:block;
+      border-radius:0;
+      overflow:hidden;
+      border:1px solid #e7e7ea;
+      background:#fff;
+    }
+    .g-item .thumb{
+      aspect-ratio:16/9;
+      background:#f6f6fb;
+    }
+
+    /* lightbox */
+    .lightbox{position:fixed; inset:0; background:rgba(0,0,0,.7); display:none; align-items:center; justify-content:center; padding:24px; z-index:120}
+    .lightbox img{max-width:min(1100px,92vw); max-height:86vh; border-radius:10px; box-shadow:0 36px 80px rgba(0,0,0,.6)}
+    .lightbox.show{display:flex}
+
+    /* footer / contact */
+    footer{
+      padding:56px 0 88px; margin-top:28px; border-top:1px solid #ececf0;
+      background: linear-gradient(180deg, rgba(184,209,248,.06), transparent);
+    }
+    .contact{display:grid; grid-template-columns:1fr 1fr; gap:16px; align-items:center}
+    .contact .info{display:flex; flex-direction:column; gap:6px}
+    .brandfoot{display:flex; align-items:center; gap:12px}
+
+    /* utilities */
+    .muted{color:#666}
+    .caps{letter-spacing:.08em; text-transform:uppercase; font-size:12px; color:#666}
+    .row{display:flex; gap:10px; flex-wrap:wrap}
+    .sr-only{position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand"> 
+       <a href="#top" style="display:flex; align-items:center; gap:10px; text-decoration:none;">
+       <div class="logo-sml" style="background:#fff;color:var(--point);border:0px solid rgba(0,0,0,.0)">
+       <img src="http://www.w3.org/2000/svg" alt="logo">
+        </div>
+      <div>
+        <div style="font-size:13px; font-weight:700; color: var(--black);">JiYul Lee</div>
+        <div style="font-size:12px; color:var(--muted); margin-top:1px">Designer</div>
+        </div>
+        </a>
+      </div>
+      <nav aria-label="Main navigation">
+        <button class="menu-toggle" aria-expanded="false" aria-controls="nav-list" id="menuToggle">☰</button>
+        <ul class="nav">
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="career.html">Career</a></li>
+          <li><a href="archive.html">Archive</a></li>
+         <ul id="nav-list">
+          <li><a class="cta-nav" href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- ===== HERO ===== -->
+    <section id="top" class="hero">
+      <div class="blobs" aria-hidden="true">
+        <div class="blob b1"></div>
+        <div class="blob b2"></div>
+      </div>
+      <div class="container hero-inner">
+        <div class="hero-content">
+          <div class="eyebrow">Portfolio</div>
+          <h1 class="hero-title">
+            새하얀 대지에 <br><span style="color: var(--point);">물음</span>을 얹는 <br>디자이너
+          </h1>
+          <p class="hero-sub">중심을 만드는 사람, 실무를 움직이는 사람.<br>브랜드와 사람을 넘나드는 디자인을 선사합니다.</p>
+          <div role="list">
+          <h4>
+            <span>Branding</span>&nbsp;&nbsp;
+            <span>Package</span>&nbsp;&nbsp;
+            <span>Character</span>&nbsp;&nbsp;
+            <span>Digital</span>&nbsp;&nbsp;
+            <span>UI/UX</span>
+          </div>
+      </div>
+    </section>
+    <!-- ===== Projects ===== -->
+    <section id="projects">
+      <div class="container">
+        <h2 class="section-title">Projects</h2>
+        <p class="section-desc">참여 프로젝트</p>
+        <div class="projects-wrap" aria-label="Projects carousel" tabindex="0">
+          <article class="project-card" role="article" aria-labelledby="p1">
+            <div class="thumb" style="background-image: 이지율-포트폴리오_files/Image_.png'); background-size:cover; background-position:center; height:320px"></div>
+            <div class="meta">
+              <h3 id="p1">Branding — EMOS Wine</h3>
+              <p class="muted">패키지, BI, 프로모션 아트워크. 브랜드 정체성 재정립 및 전개.</p>
+            </div>
+          </article>
+          <article class="project-card" role="article" aria-labelledby="p2">
+            <div class="thumb" style="background-image: 이지율-포트폴리오_files/Image_.png'); background-size:cover; background-position:center; height:320px"></div>
+            <div class="meta">
+              <h3 id="p2">Popup & Event Design</h3>
+              <p class="muted">공간 연출과 브랜딩 접점 설계, 온/오프라인 프로모션 디자인.</p>
+            </div>
+          </article>
+          <article class="project-card" role="article" aria-labelledby="p3">
+            <div class="thumb" style="background-image: 이지율-포트폴리오_files/Image_.png'); background-size:cover; background-position:center; height:320px"></div>
+            <div class="meta">
+              <h3 id="p3">Digital / UX</h3>
+              <p class="muted">서비스 흐름 개선 및 UI 가이드 제작.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+    <!-- ===== Career ===== -->
+    <section id="career">
+      <div class="container">
+        <h2 class="section-title">Career</h2>
+        <p class="section-desc">경력 및 활동 내역</p>
+        <div class="timeline">
+          <div class="item">
+            <div class="when">2022.09 ~ 2025.06</div>
+            <div><strong>(주)에스엠라이프디자인그룹</strong> | 선임 디자이너 (겸직) — 브랜드/패키지/행사 VMD 등</div>
+            <div class="muted" style="margin-top:8px">겸직 계열: (주)모아엘앤비인터내셔널 / (주)비컨홀딩스</div>
+          </div>
+          <div class="item">
+            <div class="when">2021.01 ~ 2022.05</div>
+            <div><strong>(주)아이에스케이</strong> | 제품디자이너 — 상품 설계, 제작 및 시각 디자인</div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ===== Archive / Grid ===== -->
+    <section id="archive">
+      <div class="container">
+        <h2 class="section-title">Archive</h2>
+        <p class="section-desc">작업 더보기</p>
+        <div class="gallery" style="margin-top:18px;">
+          <div class="g-item"><div class="thumb" style="background-image:url('/mnt/data/image.jpeg'); background-size:cover; background-position:center"></div></div>
+          <div class="g-item"><div class="thumb"></div></div>
+          <div class="g-item"><div class="thumb"></div></div>
+        </div>
+      </div>
+    </section>
+    <!-- ===== Contact ===== -->
+    <footer id="contact" aria-labelledby="contactTitle">
+      <div class="container contact" style="align-items:flex-start;">
+        <div class="info">
+          <h2 id="contactTitle" class="section-title" style="color:var(--point)">Contact</h2>
+          <div class="brandfoot">
+            <div>
+              <div style="font-weight:700">JiYul Lee</div>
+              <div class="muted" style="font-size:14px;margin-top:4px">새하얀 대지에 물음을 얹는 디자이너</div>
+            </div>
+          </div>
+          <div style="margin-top:12px">
+            <div><strong>E</strong> <a href="mailto:tiu0708@naver.com">tiu0708@naver.com</a></div>
+            <div style="margin-top:6px"><strong>P</strong> <a href="tel:+821048766355">+82 10 4876 6355</a></div>
+            <div style="margin-top:6px"><strong>포트폴리오 다운로드</strong> <a href="https://www." target="_blank" rel="noreferrer">Portfolio Download</a></div>
+          </div>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:12px; align-items:flex-end;">
+          <div style="font-size:13px; color:#999">Copyright © BaekJi. All Rights Reserved.</div>
+        </div>
+      </div>
+    </footer>
+  </main>
+  
+  <!-- Lightbox -->
+  <div id="lightbox" class="lightbox" role="dialog" aria-hidden="true">
+    <img id="lightboxImg" src="" alt="Large view" />
+  </div>
+
+  <script>
+    // mobile menu toggle
+    const toggle = document.getElementById('menuToggle');
+    const nav = document.getElementById('nav-list');
+    toggle.addEventListener('click', () => {
+      const expanded = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', !expanded);
+      if(nav.style.display === 'flex') {
+        nav.style.display = '';
+      } else {
+        nav.style.display = 'flex';
+        nav.style.flexDirection = 'column';
+        nav.style.gap = '12px';
+        nav.style.background = 'transparent';
+        nav.style.padding = '12px';
+      }
+    });
+
+    // simple lightbox for gallery items (if you add click handlers to images)
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
+    document.querySelectorAll('.g-item .thumb, .project-card .thumb').forEach(el => {
+      el.addEventListener('click', (e) => {
+        // if thumb uses background-image, try to extract url()
+        const bg = getComputedStyle(el).backgroundImage;
+        let src = '';
+        if(bg && bg !== 'none') {
+          src = bg.slice(4,-1).replace(/["']/g, "");
+        } else {
+          // fallback: any img inside
+          const img = el.querySelector('img');
+          if(img) src = img.src;
+        }
+        if(src){
+          lightboxImg.src = src;
+          lightbox.classList.add('show');
+          lightbox.setAttribute('aria-hidden','false');
+        }
+      });
+    });
+    lightbox.addEventListener('click', () => {
+      lightbox.classList.remove('show');
+      lightbox.setAttribute('aria-hidden','true');
+      lightboxImg.src = '';
+    });
+
+    // keyboard escape to close lightbox
+    document.addEventListener('keydown', (e) => {
+      if(e.key === 'Escape' && lightbox.classList.contains('show')) {
+        lightbox.classList.remove('show');
+        lightbox.setAttribute('aria-hidden','true');
+        lightboxImg.src = '';
+      }
+    });
+  </script>
+</body>
+</html>

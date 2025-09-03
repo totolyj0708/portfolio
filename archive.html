@@ -192,35 +192,35 @@ nav a.cta-nav{
     <h1 style="margin-top:40px; font-size:32px; font-weight:700;">Archive</h1>
     <div class="gallery">
       <div class="g-item">
-        <div class="thumb" style="background-image:url('/mnt/data/archive1.jpg');"></div>
+        <div class="thumb" style="background-image:url('assets/archive1.jpg');"></div>
         <div class="meta">
           <h3>Project 1</h3>
           <p>간단한 설명 텍스트</p>
         </div>
       </div>
       <div class="g-item">
-        <div class="thumb" style="background-image:url('/mnt/data/archive2.jpg');"></div>
+        <div class="thumb" style="background-image:url('assets/archive2.jpg');"></div>
         <div class="meta">
           <h3>Project 2</h3>
           <p>간단한 설명 텍스트</p>
         </div>
       </div>
       <div class="g-item">
-        <div class="thumb" style="background-image:url('/mnt/data/archive3.jpg');"></div>
+        <div class="thumb" style="background-image:url('assets/archive3.jpg');"></div>
         <div class="meta">
           <h3>Project 3</h3>
           <p>간단한 설명 텍스트</p>
         </div>
       </div>
       <div class="g-item">
-        <div class="thumb" style="background-image:url('/mnt/data/archive3.jpg');"></div>
+        <div class="thumb" style="background-image:url('assets/archive4.jpg');"></div>
         <div class="meta">
           <h3>Project 4</h3>
           <p>간단한 설명 텍스트</p>
-          </div>
+        </div>
       </div>
       <div class="g-item">
-        <div class="thumb" style="background-image:url('/mnt/data/archive3.jpg');"></div>
+        <div class="thumb" style="background-image:url('assets/archive5.jpg');"></div>
         <div class="meta">
           <h3>Project 5</h3>
           <p>간단한 설명 텍스트</p>
@@ -229,6 +229,44 @@ nav a.cta-nav{
     </div>
   </div>
 </main>
+
+<style>
+.gallery{
+  display:flex;
+  gap:12px;
+  overflow-x:auto;
+  padding-bottom:12px;
+}
+.g-item{
+  flex:0 0 auto;
+  width:320px;
+  display:block;
+  border-radius:12px;
+  overflow:hidden;
+  border:1px solid #e7e7ea;
+  background:#fff;
+}
+.g-item .thumb{
+  aspect-ratio:16/9;
+  background:#f6f6fb;
+  background-size: cover; /* 이미지 꽉 채우기 */
+  background-position: center; /* 중앙 기준 배치 */
+}
+.g-item .meta{
+  padding:12px 14px;
+}
+.g-item h3{
+  margin:0 0 6px;
+  font-size:16px;
+  font-weight:700;
+}
+.g-item p{
+  margin:0;
+  font-size:14px;
+  color:#555;
+}
+</style>
+
 
 <!-- 화면 오른쪽 하단 top 버튼 -->
 <a href="index.html" class="top-btn" aria-label="Go to Home"></a>

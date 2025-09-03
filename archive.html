@@ -231,20 +231,16 @@ nav a.cta-nav{
 </main>
 
 <style>
-.gallery{
-  display:flex;
-  gap:12px;
-  overflow-x:auto;
-  padding-bottom:12px;
+.gallery {
+  display: grid;
+  grid-template-columns: 1fr; /* 한 줄에 한 아이템 */
+  gap: 20px; /* 아이템 간 간격 */
+  overflow-x: visible; /* 가로 스크롤 제거 */
+  padding-bottom: 12px;
 }
-.g-item{
-  flex:0 0 auto;
-  width:320px;
-  display:block;
-  border-radius:12px;
-  overflow:hidden;
-  border:1px solid #e7e7ea;
-  background:#fff;
+.g-item {
+  width: 100%; /* 가로 꽉 채우기 */
+}
 }
 .g-item .thumb{
   aspect-ratio:16/9;

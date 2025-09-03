@@ -233,24 +233,34 @@ nav a.cta-nav{
 <style>
 .gallery {
   display: grid;
-  grid-template-columns: 1fr; /* 한 줄에 한 아이템 */
+  grid-template-columns: repeat(3, 1fr); /* 3열 */
   gap: 20px; /* 아이템 간 간격 */
-  overflow-x: visible; /* 가로 스크롤 제거 */
+  overflow-x: hidden; /* 가로 스크롤 제거 */
   padding-bottom: 12px;
 }
+
 .g-item {
-  width: 100%; /* 가로 꽉 채우기 */
+  width: 100%;
+  border-radius: 0; /* 각진 모서리 */
+  border: 1px solid #e7e7ea;
+  background: #fff;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
-}
-.g-item .thumb{
-  aspect-ratio:16/9;
+
+.g-item .thumb {
+  aspect-ratio: 16/9;
   background:#f6f6fb;
-  background-size: cover; /* 이미지 꽉 채우기 */
-  background-position: center; /* 중앙 기준 배치 */
+  border-radius: 0; /* 이미지 모서리도 각지게 */
+  background-size: cover;
+  background-position: center;
 }
-.g-item .meta{
-  padding:12px 14px;
+
+.g-item .meta {
+  padding: 16px;
 }
+
 .g-item h3{
   margin:0 0 6px;
   font-size:16px;

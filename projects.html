@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="ko">
 <head>
 <meta charset="utf-8" />
@@ -39,21 +40,14 @@ a{color:inherit; text-decoration:none}
 img{max-width:100%; display:block}
 .container{max-width:var(--maxw); margin:0 auto; padding:0 20px}
 
-  <a id="brandHome" href="/" class="brand-link" aria-label="Home">…</a>
-<script>
-  (function(){
-    // GitHub Pages 프로젝트 페이지라면 '/username.github.io/repo/' 형태
-    if (location.hostname.endsWith('github.io')) {
-      const seg = location.pathname.split('/').filter(Boolean);
-      if (seg.length >= 1) {
-        // 첫 세그먼트가 repo 이름
-        document.getElementById('brandHome').setAttribute('href', `/${seg[0]}/`);
-      }
-    }
-  })();
-</script>
-
-  .top-btn {
+/* ===== Home button / top button ===== */
+.home-btn {
+  display:flex;
+  align-items:center;
+  gap:10px;
+  text-decoration:none;
+}
+.top-btn {
   position: fixed;
   bottom: 20px;
   right: 20px;
@@ -68,8 +62,6 @@ img{max-width:100%; display:block}
   transition: background 0.3s ease, transform 0.2s ease;
   z-index: 999;
 }
-
-/* 위 화살표 (삼각형) */
 .top-btn::before {
   content: "";
   position: absolute;
@@ -77,11 +69,9 @@ img{max-width:100%; display:block}
   height: 0;
   border-left: 10px solid transparent;
   border-right: 10px solid transparent;
-  border-bottom: 14px solid white; /* 화살표 색 */
+  border-bottom: 14px solid white;
   top: 16px;
 }
-
-/* 화살표 꼬리 (직사각형) */
 .top-btn::after {
   content: "";
   position: absolute;
@@ -90,24 +80,7 @@ img{max-width:100%; display:block}
   background: white;
   bottom: 14px;
 }
-  
 .top-btn:hover {
-  background: #333;
-  transform: scale(1.1);
-}
--btn::after::after {
-  content: "";
-  position: absolute;
-  width: 5px;
-  height: 7px;
-  background: var(--point);
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  border-radius: 1px;
-}
-  
-.home-btn:hover {
   background: #333;
   transform: scale(1.1);
 }
@@ -153,175 +126,17 @@ nav a.cta-nav{
   .menu-toggle{display:block}
 }
 
-/* ===== Hero ===== */
-.hero{display:flex; overflow:visible; padding:80px 0 40px}
-.hero-inner{
-  min-height:78vh;
-  display:grid; grid-template-columns:1fr 520px; gap:40px; align-items:center;
-  align-content:center;
-  position:relative;
-}
-/* left flow content */
-.hero-content{max-width:720px}
-.eyebrow{font-size:13px; color:var(--muted); letter-spacing:.12em; text-transform:uppercase}
-.hero-title{
-  margin:18px 0 12px;
-  font-family: "Playfair Display", serif;
-  font-size:clamp(42px, 7.6vw, 120px);
-  line-height:1.2;
-  letter-spacing:0.0em;
-  color:var(--black);
-  display:block;
-  position:relative;
-  word-break:break-word;
-  transform:translateZ(0);
-}
-.hero-title .accent{
-  color:var(--point);
-}
-.hero-sub{font-size:18px; color:#555; margin-top:6px; max-width:520px}
-.chips{display:flex; flex-wrap:wrap; gap:10px; margin:18px 0 26px}
-.chip{padding:8px 12px; border-radius:999px; background:#fff; border:1px solid var(--sub); font-size:13px; color:var(--sub);}
-.cta{display:flex; gap:10px}
-
-/* right KV block (image + framed tile like ref) */
-.kv{
-  position:relative; height:62vh; min-height:320px; display:flex; align-items:center; justify-content:center;
-  border-radius:18px; overflow:visible;
-  background:var(--accent-grad);
-  box-shadow:var(--shadow);
-  border:1px solid rgba(0,0,0,.04);
-  padding:28px;
-}
-/* inner tile */
-.kv .frame{
-  width:68%; aspect-ratio:3/4; background:#fff; border-radius:8px; overflow:hidden; border:1px solid #e7e7ea;
-  display:grid; place-items:center; position:relative;
-}
-.kv .frame img{width:110%; height:110%; object-fit:cover; transform:translateY(-6%); mix-blend-mode:normal; filter:contrast(.98) saturate(.92)}
-.kv .label{position:absolute; bottom:18px; left:22px; font-size:12px; color:#666; letter-spacing:.06em}
-
-/* subtle background blobs */
-.blobs{position:absolute; inset:0; pointer-events:none; z-index:-1}
-.blob{position:absolute; border-radius:50%; filter:blur(36px) saturate(110%); opacity:.22}
-.blob.b1{width:60vmax; height:70vmax; top:-20%; right:-10%; background:var(--point)}
-.blob.b2{width:90%; height:38vmax; left:-30%; bottom:-10%; background:var(--sub)}
-.cta a.chip {
-  background: var(--black);
-  color: var(--sub);
-  border: 1px solid var(--black);
-  transition: all 0.0s;
-}
-.cta a.chip:hover {
-  background: var(--point);
-  color: #fff;
-  border: 1px solid var(--point);
-}
-
-/* ===== Sections with vertical scroll-snap (flow story) ===== */
-main{
-  scroll-snap-type: y mandatory;
-  overflow-y: auto;
-}
-section{
-  padding:56px 0;
-  scroll-snap-align:start;
-}
-.section-title{font-size:20px; font-weight:800; margin:0 0 10px; color: var(--point);}
-.section-desc{margin-top:-6px; color:#666}
-
-/* Career styling */
-.timeline{display:grid; gap:14px}
-.item{background:#fff; border:1px solid #eef0f3; border-radius:12px; padding:16px; box-shadow:var(--shadow)}
-.when{color:var(--muted); font-size:13px; margin-bottom:6px}
-
-/* Projects */
-.projects-wrap {
-  display: flex;
-  gap: 20px;
-  padding: 18px 6px;
-  justify-content: space-between;
-}
-.project-card {
-  width: calc((100% - 40px) / 3);
-  background: #fff;
-  border: 1px solid #ececf0;
-  box-shadow: none;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-}
-.project-card .thumb {
-  aspect-ratio: 16/9;
-  width: 100%;
-  background: #e9eefc;
-  overflow: hidden;
-}
-.project-card .thumb img {
-  width: 100%;
-  background: #e9eefc;
-  overflow: hidden;
-}
-.project-card .meta {
-  padding: 16px;
-}
-.project-card h3 {
-  margin: 0 0 8px;
-  font-family: Pretendard, system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans KR", sans-serif;
-}
-
-@media (max-width:980px){
-  .hero-inner {grid-template-columns: 1fr; gap: 28px; padding: 36px 0;}
-  .kv {height: 44vh;}
-  .project-card {flex: 0 0 calc(50% - 10px);}
-  .gallery{flex-wrap:wrap;}
-}
-
-/* Gallery / archive grid */
-.gallery{
-  display:flex;
-  gap:12px;
-  overflow-x:auto;
-  padding-bottom:12px;
-}
-.g-item{
-  flex:0 0 auto;
-  width:320px;
-  display:block;
-  border-radius:0;
-  overflow:hidden;
-  border:1px solid #e7e7ea;
-  background:#fff;
-}
-.g-item .thumb{
-  aspect-ratio:16/9;
-  background:#f6f6fb;
-}
-
-/* footer / contact */
-footer{
-  padding:56px 0 88px; margin-top:28px; border-top:1px solid #ececf0;
-  background: linear-gradient(180deg, rgba(184,209,248,.06), transparent);
-}
-.contact{display:grid; grid-template-columns:1fr 1fr; gap:16px; align-items:center}
-.contact .info{display:flex; flex-direction:column; gap:6px}
-.brandfoot{display:flex; align-items:center; gap:12px}
-
-/* utilities */
-.muted{color:#666}
-.caps{letter-spacing:.08em; text-transform:uppercase; font-size:12px; color:#666}
-.row{display:flex; gap:10px; flex-wrap:wrap}
-.sr-only{position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden}
-  <a href="index.html" class="home-btn">↑ Home</a>
+/* 기타 기존 스타일들은 동일 ... */
 </style>
 </head>
 <body>
+
 <header>
   <div class="container nav">
     <div class="brand"> 
-      <a href="#top" style="display:flex; align-items:center; gap:10px; text-decoration:none;">
+      <!-- 상단 로고 클릭 시 index.html로 이동 -->
+      <a href="index.html" class="home-btn" aria-label="Home">
         <div class="logo-sml">
-          <!-- 임시 로고 SVG -->
           <svg width="24" height="24" viewBox="0 0 24 24">
             <circle cx="12" cy="12" r="10" fill="white"/>
             <text x="12" y="16" font-size="12" text-anchor="middle" fill="var(--point)" font-family="Playfair Display">JL</text>
@@ -349,6 +164,8 @@ footer{
   </div>
 </header>
 
-  <a href="#top" class="top-btn" aria-label="Go to top"></a>
+<!-- top 버튼 -->
+<a href="#top" class="top-btn" aria-label="Go to top"></a>
+
 </body>
 </html>

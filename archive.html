@@ -231,17 +231,61 @@ nav a.cta-nav{
 </main>
 
 <style>
+<main>
+  <div class="container">
+    <h1 style="margin-top:40px; font-size:32px; font-weight:700;">Archive</h1>
+    <div class="gallery">
+      <div class="g-item">
+        <div class="thumb" style="background-image:url('assets/archive1.jpg');"></div>
+        <div class="meta">
+          <h3>Project 1</h3>
+          <p>간단한 설명 텍스트</p>
+        </div>
+      </div>
+      <div class="g-item">
+        <div class="thumb" style="background-image:url('assets/archive2.jpg');"></div>
+        <div class="meta">
+          <h3>Project 2</h3>
+          <p>간단한 설명 텍스트</p>
+        </div>
+      </div>
+      <div class="g-item">
+        <div class="thumb" style="background-image:url('assets/archive3.jpg');"></div>
+        <div class="meta">
+          <h3>Project 3</h3>
+          <p>간단한 설명 텍스트</p>
+        </div>
+      </div>
+      <div class="g-item">
+        <div class="thumb" style="background-image:url('assets/archive4.jpg');"></div>
+        <div class="meta">
+          <h3>Project 4</h3>
+          <p>간단한 설명 텍스트</p>
+        </div>
+      </div>
+      <div class="g-item">
+        <div class="thumb" style="background-image:url('assets/archive5.jpg');"></div>
+        <div class="meta">
+          <h3>Project 5</h3>
+          <p>간단한 설명 텍스트</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<style>
 .gallery {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3열 */
-  gap: 20px; /* 아이템 간 간격 */
-  overflow-x: hidden; /* 가로 스크롤 제거 */
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  overflow-x: hidden;
   padding-bottom: 12px;
 }
-
+  
 .g-item {
   width: 100%;
-  border-radius: 0; /* 각진 모서리 */
+  border-radius: 0;
   border: 1px solid #e7e7ea;
   background: #fff;
   overflow: hidden;
@@ -249,18 +293,17 @@ nav a.cta-nav{
   flex-direction: column;
 }
 
-.g-item .thumb {
+..g-item .thumb {
   aspect-ratio: 16/9;
   background:#f6f6fb;
   border-radius: 0; /* 이미지 모서리도 각지게 */
   background-size: cover;
   background-position: center;
+  
+.g-item .meta{
+  padding:16px;
 }
-
-.g-item .meta {
-  padding: 16px;
-}
-
+  
 .g-item h3{
   margin:0 0 6px;
   font-size:16px;

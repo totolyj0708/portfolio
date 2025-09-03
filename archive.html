@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="ko">
 <head>
 <meta charset="utf-8" />
@@ -111,141 +112,52 @@ nav a.cta-nav{
 .chip{padding:8px 12px; border-radius:999px; background:#fff; border:1px solid var(--sub); font-size:13px; color:var(--sub);}
 .cta{display:flex; gap:10px}
 
-/* right KV block (image + framed tile like ref) */
-.kv{
-  position:relative; height:62vh; min-height:320px; display:flex; align-items:center; justify-content:center;
-  border-radius:18px; overflow:visible;
-  background:var(--accent-grad);
-  box-shadow:var(--shadow);
-  border:1px solid rgba(0,0,0,.04);
-  padding:28px;
-}
-/* inner tile */
-.kv .frame{
-  width:68%; aspect-ratio:3/4; background:#fff; border-radius:8px; overflow:hidden; border:1px solid #e7e7ea;
-  display:grid; place-items:center; position:relative;
-}
-.kv .frame img{width:110%; height:110%; object-fit:cover; transform:translateY(-6%); mix-blend-mode:normal; filter:contrast(.98) saturate(.92)}
-.kv .label{position:absolute; bottom:18px; left:22px; font-size:12px; color:#666; letter-spacing:.06em}
-
-/* subtle background blobs */
-.blobs{position:absolute; inset:0; pointer-events:none; z-index:-1}
-.blob{position:absolute; border-radius:50%; filter:blur(36px) saturate(110%); opacity:.22}
-.blob.b1{width:60vmax; height:70vmax; top:-20%; right:-10%; background:var(--point)}
-.blob.b2{width:90%; height:38vmax; left:-30%; bottom:-10%; background:var(--sub)}
-.cta a.chip {
-  background: var(--black);
-  color: var(--sub);
-  border: 1px solid var(--black);
-  transition: all 0.0s;
-}
-.cta a.chip:hover {
+/* Top button (scroll to top) */
+.top-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
   background: var(--point);
-  color: #fff;
-  border: 1px solid var(--point);
-}
-
-/* ===== Sections with vertical scroll-snap (flow story) ===== */
-main{
-  scroll-snap-type: y mandatory;
-  overflow-y: auto;
-}
-section{
-  padding:56px 0;
-  scroll-snap-align:start;
-}
-.section-title{font-size:20px; font-weight:800; margin:0 0 10px; color: var(--point);}
-.section-desc{margin-top:-6px; color:#666}
-
-/* Career styling */
-.timeline{display:grid; gap:14px}
-.item{background:#fff; border:1px solid #eef0f3; border-radius:12px; padding:16px; box-shadow:var(--shadow)}
-.when{color:var(--muted); font-size:13px; margin-bottom:6px}
-
-/* Projects */
-.projects-wrap {
+  border-radius: 50%;
   display: flex;
-  gap: 20px;
-  padding: 18px 6px;
-  justify-content: space-between;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+  transition: background 0.3s ease, transform 0.2s ease;
+  z-index: 999;
 }
-.project-card {
-  width: calc((100% - 40px) / 3);
-  background: #fff;
-  border: 1px solid #ececf0;
-  box-shadow: none;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
+.top-btn::before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 14px solid white;
+  top: 16px;
 }
-.project-card .thumb {
-  aspect-ratio: 16/9;
-  width: 100%;
-  background: #e9eefc;
-  overflow: hidden;
+.top-btn::after {
+  content: "";
+  position: absolute;
+  width: 9px;
+  height: 12px;
+  background: white;
+  bottom: 14px;
 }
-.project-card .thumb img {
-  width: 100%;
-  background: #e9eefc;
-  overflow: hidden;
+.top-btn:hover {
+  background: #333;
+  transform: scale(1.1);
 }
-.project-card .meta {
-  padding: 16px;
-}
-.project-card h3 {
-  margin: 0 0 8px;
-  font-family: Pretendard, system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans KR", sans-serif;
-}
-
-@media (max-width:980px){
-  .hero-inner {grid-template-columns: 1fr; gap: 28px; padding: 36px 0;}
-  .kv {height: 44vh;}
-  .project-card {flex: 0 0 calc(50% - 10px);}
-  .gallery{flex-wrap:wrap;}
-}
-
-/* Gallery / archive grid */
-.gallery{
-  display:flex;
-  gap:12px;
-  overflow-x:auto;
-  padding-bottom:12px;
-}
-.g-item{
-  flex:0 0 auto;
-  width:320px;
-  display:block;
-  border-radius:0;
-  overflow:hidden;
-  border:1px solid #e7e7ea;
-  background:#fff;
-}
-.g-item .thumb{
-  aspect-ratio:16/9;
-  background:#f6f6fb;
-}
-
-/* footer / contact */
-footer{
-  padding:56px 0 88px; margin-top:28px; border-top:1px solid #ececf0;
-  background: linear-gradient(180deg, rgba(184,209,248,.06), transparent);
-}
-.contact{display:grid; grid-template-columns:1fr 1fr; gap:16px; align-items:center}
-.contact .info{display:flex; flex-direction:column; gap:6px}
-.brandfoot{display:flex; align-items:center; gap:12px}
-
-/* utilities */
-.muted{color:#666}
-.caps{letter-spacing:.08em; text-transform:uppercase; font-size:12px; color:#666}
-.row{display:flex; gap:10px; flex-wrap:wrap}
-.sr-only{position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden}
 </style>
 </head>
 <body>
 <header>
   <div class="container nav">
     <div class="brand"> 
-      <a href="#top" style="display:flex; align-items:center; gap:10px; text-decoration:none;">
+      <!-- 홈 링크로 변경 -->
+      <a href="index.html" style="display:flex; align-items:center; gap:10px; text-decoration:none;">
         <div class="logo-sml">
           <!-- 임시 로고 SVG -->
           <svg width="24" height="24" viewBox="0 0 24 24">
@@ -317,5 +229,9 @@ footer{
     </div>
   </div>
 </main>
+
+<!-- 화면 오른쪽 하단 top 버튼 -->
+<a href="index.html" class="top-btn" aria-label="Go to Home"></a>
+
 </body>
 </html>
